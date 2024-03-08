@@ -22,3 +22,46 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
          - `#include`
          - `#define`, `#undef`
          - `#if`, `#elif`, `#ifdef`, `#ifndef`
+     - `#define`
+         - Macro được định nghĩa bằng cách sử dụng chỉ thị tiền xử lý #define.
+         - Nơi nào có tên Macro sẽ được thay thế bằng nội dung của macro đó.
+         - Giảm lặp lại mã ,dễ bảo trì.
+         - Ví dụ 1:
+           ```c
+           #include <stdio.h>
+
+           // Định nghĩa hằng số Pi sử dụng #define
+           #define PI 3.14
+           int main() {
+           // Sử dụng hằng số Pi trong chương trình
+           double radius = 5.0;
+           double area = PI * radius * radius;
+
+           printf("Radius: %.2f\n", radius);
+           printf("Area of the circle: %.2f\n", area);
+
+           return 0;
+           }
+
+         - Ví dụ 2:
+           ```c
+           #include <stdio.h>
+
+           // Định nghĩa macro để tìm số lớn hơn giữa hai số
+           #define MAX(x, y) ((x) > (y) ? (x) : (y))
+
+           int main() {
+           int a = 10, b = 20;
+    
+           // Sử dụng macro để tìm số lớn hơn giữa a và b
+           int maxNumber = MAX(a, b);
+
+           printf("The bigger number between %d and %d is: %d\n", a, b, maxNumber);
+
+           return 0;
+           }
+    - `#undef`
+       - Chỉ thị `#undef` dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng `#define`
+
+
+
