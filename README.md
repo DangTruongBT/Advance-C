@@ -157,8 +157,15 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
  		)
 
  		return 0;
-
-   
+- Compiler (Giai đoạn dịch NNBC sang ngôn ngữ Assembly):
+   - Quá trình này compiler sẽ biên dịch từ file `.i `sang file ngôn ngữ assembly là file `.s`
+   - Dùng lệnh `gcc -S main.i -o main.s`
+- Assembler (Giai đoạn dịch ngôn ngữ Assembly sang ngôn ngữ máy): compiler sẽ Biên dịch ngôn ngữ Assembly sang ngôn ngữ máy (0 và 1). Và tạo ra tệp tin Object `.o`
+   - Dùng lệnh `gcc -c main.s -o main.o` để tạo ra file `.o`
+- Linker (Giải đoạn liên kết):
+   - 1 hoặc nhiều file.o sẽ được compiler liên kết lại 1 File `.exe`.
+   - File này để hệ điều hành chạy
+   - Dùng lệnh gcc  `main.o -o filename` để tạo ra tệp thực thi .
 
    
 
