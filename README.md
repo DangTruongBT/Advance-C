@@ -77,6 +77,21 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
  	        #define cam_bien 40
          return 0;
          }
+   - `#if`: Sử dụng để bắt đầu 1 điều kiện xử lý.Nếu đúng thì các dòng lệnh sau `#if` sẽ được biên dịch , sai sẽ bỏ qua đến khi gặp `#endif`.
+   - `#elif`: Để thêm 1 ĐK mới khi #if hoặc `#elif` sai.
+   - `#else`: Dùng khi không có ĐK nào đúng
+   - `#ifdef`: Dùng để kiểm tra 1 macro định nghĩa hay chưa.Nếu định nghĩa rồi thì mã sau ifdef sẽ được biên dịch.
+   - `#ifndef`: Dùng để kiểm tra 1 macro định nghĩa hay chưa.Nếu chưa định nghĩa thì mã sau `#ifndef` sẽ được biên dịch.Thường dùng để kiểm tra macro đó đã dc định nghĩa trong file nào chưa, kết thúc thì `#endif`
+#### Mục đích tránh định nghĩa nhiều lần và xung đột
+  - Ví dụ:
+    ```c
+    #ifndef __ABC_H
+    #define __ABC_H
+
+    int a = 10;
+
+    #endif
+
 
 
 
