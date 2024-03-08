@@ -62,6 +62,21 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
            }
     - `#undef`
        - Chỉ thị `#undef` dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng `#define`
+       - Nếu hai hoặc nhiều tệp tiêu đề có cùng tên macro, chúng có thể xung đột với nhau. Việc sử dụng các chỉ thị này giúp ngăn chặn các xung đột này.
+       - Ví dụ:
+         ```c
+          #include <stdio.h>
+          #include "nhietdo.c"
+          #include "doam.c"
+          // trong 2 file đều có macro lần lượt là:
+          //#define cam_bien 10(nhietdo.c)
+          //#define cam_bien 20(doam.c)
+
+          int main(){
+ 	        #undef cam_bien
+ 	        #define cam_bien 40
+         return 0;
+         }
 
 
 
