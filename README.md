@@ -91,6 +91,76 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
     int a = 10;
 
     #endif
+ - Một số toán tử trong Marco:
+   - Ví dụ
+   
+   ```c
+   #include <stdio.h>
+
+   #define STRINGIZE(x) #x
+   #define DATA 40
+
+   int main() {
+
+    // Sử dụng toán tử #
+    printf("The value is: %s\n", STRINGIZE(DATA));
+
+    return 0;
+   }
+ - Variadic Marco: Là một dạng macro cho phép nhận một số lượng biến tham số có thể thay đổi.
+    - Ví dụ
+
+   ```c
+   #include <stdio.h>
+
+ 	#define print_menu_item(...) \
+ 		do { \
+ 			const char *items[] = {__VA_ARGS__}; \
+ 			int n = sizeof(items) / sizeof(items[0]); \
+ 			for (int i = 0; i < n; i++) { \
+ 				print_menu_item(i + 1, items[i]); \
+ 			} \
+ 		} while (0)
+
+ 	#define case_option(number, function) \
+ 		case number: \
+ 			function(); \
+ 			break;
+
+ 	#define handle_option(option, ...) \
+ 		switch (option) { \
+ 			__VA_ARGS__ \
+ 			default: \
+ 				printf("Invalid option!\n"); \
+ 		}
+
+ 	void print_menu_item(int number, const char *item) {
+ 			printf("%d. %s\n", number, item);
+ 		}
+
+ 	void feature1() { printf("Feature 1 selected\n"); }
+ 	void feature2() { printf("Feature 2 selected\n"); }
+ 	void feature3() { printf("Feature 3 selected\n"); }
+ 	void feature4() { printf("Feature 4 selected\n"); }
+
+ 	int main() {
+ 		print_menu_item("Option 1", "Option 2", "Option 3", "Option 4", "Exit");
+
+ 		int option;
+ 		scanf("%d", &option);
+
+ 		handle_option(option,
+ 					case_option(1, feature1)
+ 					case_option(2, feature2)
+ 					case_option(3, feature3)
+ 					case_option(4, feature4)
+ 		)
+
+ 		return 0;
+
+   
+
+   
 
 
 
