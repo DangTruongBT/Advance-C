@@ -1,4 +1,7 @@
 # C nâng cao 🔥
+<details><summary>LESSON 1: COMPILER AND MARCO</summary>
+<p>
+ 
 ## LESSON 1: COMPILER AND MARCO
 ### Quá trình biên dịch
 Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (NNBC) (C/C++, Pascal, Java,...) sang ngôn ngữ máy, để máy tính có thể hiểu và thực thi.
@@ -167,6 +170,10 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
    - File này để hệ điều hành chạy
    - Dùng lệnh gcc  `main.o -o filename` để tạo ra tệp thực thi .
 
+
+
+</p>
+</details>
    
 
 
