@@ -174,8 +174,13 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
 
 </p>
 </details>
-   
 
 
+<details><summary>LESSON 10: LINKER LIST</summary>
+<p>
+## LESSON 10: LINKER LIST
+ 
+</p>
+</details>
 
 
