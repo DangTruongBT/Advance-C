@@ -178,8 +178,11 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
 
 <details><summary>LESSON 10: LINKER LIST</summary>
 <p>
-## LESSON 10: LINKER LIST
  
+## LESSON 10: LINKER LIST
+
+Danh sách liên kết (Linker List): Là một tập hợp tuyến tính các phần tử dữ liệu, với thứ tụ không được đưa ra bởi vị trí vật lý của chúng trong bộ nhớ. Thay vào đó, mỗi phần tử chỉ đến phần tử tiếp theo. Nó là một cấu trúc dữ liệu bao gồm một tập hợp các nút. Ở dạng cơ bản nhất, mỗi nút chứa: dữ liệu,và một tham chiếu (hay nói cách khác là liên kết) tới nút kế tiếp trong dãy. Cấu trúc này cho phép chèn hay loại bỏ phần tử khỏi bất kì vị trí nào trong chuỗi một cách hiệu quả trong quá trình lặp
+
 </p>
 </details>
 
