@@ -181,9 +181,76 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
  
 ## LESSON 10: LINKER LIST
 
-Danh sách liên kết (Linker List): Là một tập hợp tuyến tính các phần tử dữ liệu, với thứ tụ không được đưa ra bởi vị trí vật lý của chúng trong bộ nhớ. Thay vào đó, mỗi phần tử chỉ đến phần tử tiếp theo. Nó là một cấu trúc dữ liệu bao gồm một tập hợp các nút. Ở dạng cơ bản nhất, mỗi nút chứa: dữ liệu,và một tham chiếu (hay nói cách khác là liên kết) tới nút kế tiếp trong dãy. Cấu trúc này cho phép chèn hay loại bỏ phần tử khỏi bất kì vị trí nào trong chuỗi một cách hiệu quả trong quá trình lặp
+### Danh sách liên kết là gì?
+Danh sách liên kết (Linker List): là một cấu trúc dữ liệu được sử dụng để lưu trữ các phần tử tương tự như mảng nhưng cớ nhiều điểm khác biệt
 
+Có các loại danh sách liên kết:
+   - Danh sách liên kết đơn
+   - Danh sách liên kết đôi
+   - Danh sách liên kết vòng
+###  Tính chất
+
+  - Danh sách liên kết có thể mở rộng và thu hẹp một cách linh hoạt
+  - Phần tử cuối cùng trong DSLK trỏ vào `NULL` (con trỏ `NULL`)
+  - Đây kà kiểu cấu trúc dữ liệu kiểu cấp phát động có nghĩa là còn bộ nhớ thì còn cấp phát được, cấp phát đến khi nào hết bộ nhớ thì thôi
+         - Vùng nhớ cấp phát : `Heap`
+  - Không lãng phí bộ nhớ nhưng cần thêm bộ nhớ để lưu phần con trỏ.
+    
+![Screenshot 2024-03-26 144050](https://github.com/DangTruongBT/advance-C/assets/103482832/339e04a6-e5d0-4a7d-a212-bc29dab43f6f)
+
+Để quản lí danh sách liên kết cần 1 con trỏ Head
+
+Ví dụ:
+
+Phần link của node 1 sẽ lưu địa chỉ node 2 là 6, tương tự với các node tiếp theo cho đến node cuối cùng link địa chỉ `NULL`
+ 
+>     - Phần data lưu giá trị node
+
+>     - Phần link lưu địa chỉ của node kế tiếp.
+
+#### Ưu điểm
+
+  - Có thể mở rộng với độ phức tạp
+  - Dễ mở rộng và thu hẹp kích thước
+  - Có thể cấp phát số lượng lớn các node tùy vào bộ nhớ
+      
+#### Nhược điểm
+
+- Khó khăn trong việc truy cập 1 phần tử ở vị trí bất kì (0(n))
+- Khó khăn trong việc cài đặt
+- Tốn thêm bộ nhớ cho phần tham chiếu bổ sung
+
+### Cấu trúc một node của DSLK
+ ```c 
+    
+              struct node {
+              int data;
+              struct node* next; //link
+          };
+```
+**Giải thích ý nghĩa của cấu trúc node**
+
+Node ở dây có phần tử dữ liệu là một số nguyên lưu ở data, ngoài ra nó còn có 1 phần con trỏ trỏ tới chính struct node. Phần này chính là địa chỉ của node tiếp theo của nó trong DSLK.
+
+Như vậy mỗi node sẽ có dữ liệu của nó và có địa chỉ của node tiếp sau nó. Đối với con trỏ cuối cùng trong DSLK thì phần địa chỉ này sẽ là con trỏ `NULL`
+
+
+*Mỗi node trong DSLK đều đưuọc cấp phát động*
+#### a. Tạo một node mới 
+```c
+    struct node {
+              int data;
+              struct node* next; //link
+          };
+   node *Makenode(int value){
+    node *newNode = (node*)malloc(sizeof(node));
+    newNode -> data = value;
+    newNode -> next = NULL;
+   return newNode;
+```
 </p>
 </details>
+
+
 
 
