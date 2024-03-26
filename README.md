@@ -277,7 +277,7 @@ Các cặp key-value ngăn cách nhau bằng dấu `,`
 
 - Null: Được biểu diễn bởi từ khóa null, đại diện cho một giá trị không tồn tại hoặc không xác định.
 
-Lưu ý: Key bắt buộc phải là String còn value có thể là string, number, boolean,...
+Lưu ý: Key bắt buộc phải là `String` còn value có thể là `string`, `number`, `boolean`,...
 </p>
 </details>
 
