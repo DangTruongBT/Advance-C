@@ -248,6 +248,79 @@ Như vậy mỗi node sẽ có dữ liệu của nó và có địa chỉ của 
     newNode -> next = NULL;
    return newNode;
 ```
+#### b. Kiểm tra danh sách có rõng hay không
+```c
+  bool empty(node **array)
+     {
+      	if( (*array) == NULL)
+         	{
+		          return true;
+         	}
+      	else
+	        {
+		         return false;
+	        }
+    }
+```
+
+#### c. Thêm một node vào đầu danh sách
+```c
+void push_front(node **array, int value)
+{
+	 node* temp;
+    temp = Makenode(value); 
+    if (*array == NULL)  
+    {
+
+        *array = temp;
+    }
+    else
+    {
+    	temp->next = *array;
+    	*array = temp;
+	   }
+    
+}
+```
+#### d. Thêm một node vào cuối danh sách
+```c
+void push_back(node** array, int value)
+{
+    node* temp;
+    temp = Makenode(value); // khoi tao node
+                              // temp = 0xa1
+
+    
+    if (*array == NULL)   // if array doesn't have any node yet
+    {
+
+        *array = temp;
+    }
+    else                // if array has some node
+    {
+        node* p = *array;          // use p instead of array because we are using pointer, use array will change the structure of linkedlist
+        while (p->next != NULL) // which mean the current node is not the last node
+        {
+            p = p->next;    // check next node until it a last node
+
+        }
+
+        p->next = temp;     // change it next member point to address of new node have just create
+    }
+}
+```
+#### e. Xóa phần tử đầu danh sách
+```c
+     void pop_front(node **head)
+       {
+          	if(*head == NULL) return;
+	          node *temp = *head;
+          	*head = (*head)->next;
+          	free(temp);
+       }
+
+```
+
 </p>
 </details>
 
