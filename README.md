@@ -230,7 +230,54 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
 
 <details><summary>LESSON 9: JSON</summary>
 <p>
+	
+## LESSON 9: JSON
 
+JSON (JavaScript Object Notation) là một định dạng dữ liệu dựa trên văn bản (text-based), được sử dụng để truyền và lưu trữ dữ liệu giữa các ứng dụng. JSON được thiết kế để dễ đọc và dễ hiểu cho con người, cũng như dễ phân tích và tạo ra bằng các ngôn ngữ lập trình.
+
+JSON được tổ chức dưới dạng các cặp key-value (khóa-giá trị), trong đó mỗi khóa là một chuỗi và mỗi giá trị có thể là một số, một chuỗi, một đối tượng JSON khác hoặc một mảng JSON.
+
+Bắt đầu chuỗi JSON là dấu `"` kết thúc là dấu `"`
+
+#### Cú pháp dựa trên cặp key-value
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/19b257cc-c43f-4ea4-9e91-c09d3e314b6f)
+
+"name": là key
+
+"John Doe": là 1 value
+
+1 Object JSON mở đầu bằng `{` kết thúc bằng `}`
+
+#### Các định dạng
+
+```c
+  typedef enum {
+            JSON_NULL,
+            JSON_BOOLEAN,
+            JSON_NUMBER,
+            JSON_STRING,
+            JSON_ARRAY,
+            JSON_OBJECT,
+    }JsonType
+```
+Các cặp key-value ngăn cách nhau bằng dấu `,`
+
+### JSON Values
+
+-  Chuỗi (String): chuỗi ký tự Unicode được bao quanh bởi dấu ngoặc kép. Ví dụ: "Hello, World!", "123", "true".
+
+- Số (Number): JSON hỗ trợ cả số nguyên và số thực. Các số có thể được biểu diễn với hoặc không có dấu thập phân và/hoặc mũ. Ví dụ: 123, 3.14, -42, 1.5e10.
+
+- Boolean: Được biểu diễn bởi từ khóa true hoặc false.
+
+- Mảng (Array): Một danh sách các giá trị, được bao quanh bởi dấu ngoặc vuông và các giá trị được phân tách bằng dấu phẩy. Mỗi phần tử trong mảng có thể là bất kỳ kiểu dữ liệu JSON nào. Ví dụ: [1, 2, 3, "apple", true].
+
+- Đối tượng (Object): Một tập hợp các cặp key-value, được bao quanh bởi dấu ngoặc nhọn. Mỗi cặp key-value được phân tách bằng dấu phẩy. Key là một chuỗi và phải được bao quanh bởi dấu ngoặc kép, sau đó là dấu hai chấm, và sau đó là giá trị. Ví dụ: {"name": "John", "age": 30, "isStudent": true}.
+
+- Null: Được biểu diễn bởi từ khóa null, đại diện cho một giá trị không tồn tại hoặc không xác định.
+
+Lưu ý: Key bắt buộc phải là String còn value có thể là string, number, boolean,...
 </p>
 </details>
 
