@@ -378,6 +378,81 @@ int size(node *array)
 
 <details><summary>LESSON 11: STACK AND QUEUE</summary>
 <p>
+	
+# STACK AND QUEUE
+
+## 1. STACK
+
+ ###   Stack là gì?
+
+   Một ngăn xếp là một cấu trúc dữ liệu trừu tượng (Abstract Data Type – viết tắt là ADT), hầu như được sử dụng trong hầu hết mọi ngôn ngữ lập trình. Đặt tên là ngăn xếp bởi vì nó hoạt động như một ngăn xếp trong đời sống thực, ví dụ như một cỗ bài hay một chồng đĩa, …
+
+  Trong đời sống thực, ngăn xếp chỉ cho phép các hoạt động tại vị trí trên cùng của ngăn xếp. Ví dụ, chúng ta chỉ có thể đặt hoặc thêm một lá bài hay một cái đĩa vào trên cùng của ngăn xếp. Do đó, cấu trúc dữ liệu trừu tượng ngăn xếp chỉ cho phép các thao tác dữ liệu tại vị trí trên cùng. Tại bất cứ thời điểm nào, chúng ta chỉ có thể truy cập phần tử trên cùng của ngăn xếp.
+
+  Đặc điểm này làm cho ngăn xếp trở thành cấu trúc dữ liệu dạng `LIFO`. `LIFO` là viết tắt của `Last-In-First-Out`. Ở đây, phần tử được đặt vào (được chèn, được thêm vào) cuối cùng sẽ được truy cập đầu tiên. Trong thuật ngữ ngăn xếp, hoạt động chèn được gọi là hoạt động `PUSH` và hoạt động xóa được gọi là hoạt động `POP`.
+  
+  ![Screenshot 2024-03-26 225502](https://github.com/DangTruongBT/advance-C/assets/103482832/81a46976-880c-4714-8aa3-339ec22b8cc0)
+
+Một ngăn xếp có thể được triển khai theo phương thức của Mảng (Array), Cấu trúc (Struct), Con trỏ (Pointer) và Danh sách liên kết (Linked List). Ngăn xếp có thể là ở dạng kích cỡ cố định hoặc ngăn xếp có thể thay đổi kích cỡ.
+
+Bên dưới sẽ sẽ triển khai ngăn xếp bằng danh sách liên kết:
+
+ ###  Các hoạt động cơ bản trên cấu trúc dữ liệu ngăn xếp
+
+  - Push(): Đẩy 1 phần tử dữ liệu vào trong ngăn xếp
+
+  - Pop(): Lấy 1 phần tử dữ liệu ra khỏi ngăn xếp
+
+  - Top(): Lấy 1 phần tử trên cùng của ngăng xếp.
+
+  - Is_Full(): Kiểm tra xem ngăn xếp đã đầy chưa
+
+  - Is_Empty(): Kiểm tra xem ngăn xếp có trống hay không.
+#### Định nghĩa 1 Stack
+
+```c
+typedef struct Stack {
+    int* items; // mảng chứa các giá trị trong ngăn xếp
+    int size;   // kích thước của mảng đó
+    int top;   // giá trị của phần tử trên cùng
+} Stack;
+```
+#### Hoạt động khởi tạo 1 ngăn xếp
+```c
+void initialize( Stack *stack, int size) {
+    stack->items = (int*) malloc(sizeof(int) * size); //cấp phát động 1 mảng chứa các giá trị
+    stack->size = size; // truyền vào kích thước mong muốn
+    stack->top = -1; // gắn giá trị trên cùng bằng -1
+}
+```
+
+#### Hoạt động Is_Full() trong cấu trúc dữ liệu ngăn xếp
+
+```c
+int Is_Full( Stack stack) {
+    return stack.top == stack.size - 1;
+}
+```
+
+#### Hoạt động Is_Empty() trong cấu trúc dữ liệu ngăn xếp
+
+```c
+int Is_Empty( Stack stack) {
+    return stack.top == -1;
+}
+```
+
+#### Hoạt động Push() trong cấu trúc dữ liệu ngăn xếp
+
+```c
+void Push( Stack *stack, int value) {
+    if (!is_full(*stack)) {
+        stack->items[++stack->top] = value;
+    } else {
+        printf("Stack overflow\n");
+    }
+}
+```
 
 </p>
 </details>
