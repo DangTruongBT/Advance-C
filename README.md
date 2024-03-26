@@ -175,6 +175,59 @@ Quy trình biên dịch là quá trình chuyển đổi ngôn ngữ bậc cao (N
 </p>
 </details>
 
+<details><summary>LESSON 2: STDARG - ASSERT</summary>
+<p>
+
+</p>
+</details>
+
+
+
+<details><summary>LESSON 3: POINTER</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>LESSON 4: Memory layout</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>LESSON 5: Extern - Static - Volatile - Register</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>LESSON 6: Goto - setjmp.h</summary>
+<p>
+
+</p>
+</details>
+
+<details><summary>LESSON 7: Bitmask</summary>
+<p>
+
+</p>
+</details>
+
+
+
+
+
+
+
+
+<details><summary>LESSON 8: Struct - Union</summary>
+<p>
+
+</p>
+</details>
+
+
+
 <details><summary>LESSON 9: JSON</summary>
 <p>
 
