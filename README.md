@@ -568,7 +568,18 @@ int main() {
   Tương tự như cấu trúc dữ liệu ngăn xếp, thì cấu trúc dữ liệu hàng đợi cũng có thể được triển khai bởi sử dụng Mảng (Array), Danh sách liên kết (Linked List), Con trỏ (Pointer) và Cấu trúc (Struct).
 
   Bên dưới sẽ sẽ triển khai hàng đợi bằng danh sách liên kết:
-  
+
+  #### Các hoạt động cơ bản trên cấu trúc dữ liệu hàng đợi
+
+  - enqueue(): Thêm 1 phần tử dữ liệu vào trong hàng đợi
+
+  - dequeue(): Xóa 1 phần tử từ hàng đợi
+
+  - Front(): lấy phần tử ở đầu hàng đợi, mà không xóa phần tử này.
+
+  - Is_Full(): Kiểm tra xem hàng đợi đã đầy chưa
+
+  - Is_Empty(): Kiểm tra xem hàng đợi có trống hay không.
 
 
 </p>
