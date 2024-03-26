@@ -301,13 +301,22 @@ int main() {
 
 
 
-
-
-
-
-
 <details><summary>LESSON 8: Struct - Union</summary>
 <p>
+
+## LESSON 8: STRUCT - UNION
+
+#### STRUCT
+
+Struct là một cấu trúc dữ liệu cho phép lập trình viên tự định nghĩa một kiểu dữ liệu mới bằng cách nhóm các biến có các kiểu dữ liệu khác nhau lại với nhau. struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
+
+```c
+struct TenStruct {
+    kieuDuLieu1 thanhVien1;
+    kieuDuLieu2 thanhVien2;
+    // ...
+};
+```
 
 </p>
 </details>
