@@ -454,6 +454,32 @@ void Push( Stack *stack, int value) {
 }
 ```
 
+#### Hoạt động Pop() trong cấu trúc dữ liệu ngăn xếp
+
+```c
+int Pop( Stack *stack) {
+    if (!is_empty(*stack)) {
+        return stack->items[stack->top--];
+    } else {
+        printf("Stack underflow\n");
+        return -1;
+    }
+}
+```
+
+#### Hoạt động Top() trong cấu trúc dữ liệu ngăn xếp
+
+```c
+int Top( Stack stack) {
+    if (!is_empty(stack)) {
+        return stack.items[stack.top];
+    } else {
+        printf("Stack is empty\n");
+        return -1;
+    }
+}
+```
+
 </p>
 </details>
 
