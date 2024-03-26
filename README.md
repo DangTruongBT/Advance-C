@@ -309,18 +309,62 @@ void push_back(node** array, int value)
     }
 }
 ```
-#### e. Xóa phần tử đầu danh sách
+#### e. Xóa node đầu danh sách
 ```c
-     void pop_front(node **head)
+     void pop_front(node **array)
        {
           	if(*head == NULL) return;
-	          node *temp = *head;
-          	*head = (*head)->next;
+	          node *temp = *array;
+          	*array = (*array)->next;
           	free(temp);
        }
 
 ```
 
+#### f. Xóa node cuối danh sách
+```c
+   void pop_back(node **array){
+    if(*array == NULL) return; // DSLK rong
+    if((*array)->next == NULL){
+        free(*array);
+        (*array) = NULL;
+    }
+    else{
+        node *tmp = (*array);
+        //Duyet den node thu 2 tu cuoi ve : tmp
+        while(tmp->next->next != NULL){
+            tmp = tmp->next;
+        }
+        //Luu lai node cuoi de giai phong
+        node *delNode = tmp->next;
+        //Cho node tmp => NULL
+        tmp->next = NULL;
+        //Giai phong node cuoi
+        delete delNode;
+    }
+}
+
+```
+
+#### g. Lấy kích thước của danh sách
+```c
+int size(node *array)
+{
+    int count = 0;
+	while(array != NULL)
+	{
+		count++;
+		array = array->next;
+	}
+	printf("\n so phan tu trong danh sach %d", count);
+        return count;
+}
+
+```
+#### h. Thêm 1 node vào vị trí bất kì của danh sách
+```c
+
+```
 </p>
 </details>
 
