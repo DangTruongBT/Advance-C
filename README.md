@@ -521,6 +521,77 @@ int *A = (int *)malloc(18446744073709551615);
 
 <details><summary>LESSON 6: Goto - setjmp.h</summary>
 <p>
+	
+## LESSON 6: GOTO _ SETJMP.H
+
+### GOTO
+
+Câu lệnh goto trong C cung cấp một bước nhảy vô điều kiện từ 'goto' đến một câu lệnh có nhãn trong cùng một hàm.
+
+Chú ý: Việc sử dụng câu lệnh goto không được khuyến khích sử dụng trong bất kỳ ngôn ngữ lập trình nào vì nó rất khó để theo dõi luồng điều khiển của chương trình, làm cho chương trình khó hiểu và khó bảo trì.
+
+Cú pháp
+
+```c
+goto ten_nhan;
+..
+.
+ten_nhan: lenh;
+```
+
+**Sơ đồ khối**
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/71546d5b-33f6-4ce8-b226-ae603ef31d80)
+
+```c
+
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+
+    // Đặt nhãn
+    start:
+        if (i >= 5) {
+            goto end;  // Chuyển control đến nhãn "end"
+        }
+
+        printf("%d ", i);
+        i++;
+
+        goto start;  // Chuyển control đến nhãn "start"
+
+    // Nhãn "end"
+    end:
+        printf("\n");
+
+    return 0;
+}
+
+```
+
+### SETJMP
+
+Header file có tên setjmp.h trong Thư viện C định nghĩa macro setjmp(), một hàm longjmp(), và một kiểu biến jmp_buf, để bỏ qua lời gọi hàm thông thường và trả về qui tắc, bằng cách cung cấp các phương thức để thực hiện các cú nhảy mà vẫn duy trì môi trường gọi hàm.
+
+Biến được định nghĩa trong setjmp.h
+
+Dưới đây là kiểu biến được định nghĩa trong setjmp.h:
+
+jmp_buf: Đây là một kiểu mảng được sử dụng để giữ thông tin cho macro setjmp() và hàm longjmp().
+
+Các macro được định nghĩa trong setjmp.h
+
+Chỉ có một macro được định nghĩa trong thư viện này:
+
+int setjmp(jmp_buf environment): Macro này lưu trữ môi trường (environment) hiện tại bên trong biến environment để sử dụng sau bởi hàm longjmp(). Nếu macro này trả về một cách trực tiếp từ lời gọi macro, thì nó trả về 0; nhưng nếu nó trả về từ một lời gọi hàm longjmp(), thì một giá trị khác 0 được trả về.
+
+**Khai báo Macro setjmp() trong C**
+
+```c
+int setjmp(jmp_buf environment)
+```
+
 
 </p>
 </details>
