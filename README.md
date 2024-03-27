@@ -306,7 +306,7 @@ int main() {
 
 ## LESSON 8: STRUCT - UNION
 
-#### STRUCT
+### STRUCT
 
 Struct là một cấu trúc dữ liệu cho phép lập trình viên tự định nghĩa một kiểu dữ liệu mới bằng cách nhóm các biến có các kiểu dữ liệu khác nhau lại với nhau. struct cho phép tạo ra một thực thể dữ liệu lớn hơn và có tổ chức hơn từ các thành viên (members) của nó.
 
@@ -316,7 +316,115 @@ struct TenStruct {
     kieuDuLieu2 thanhVien2;
     // ...
 };
+
 ```
+#### Kích thước của Struct
+
+```c
+struct Example {
+    uint8_t a;    
+    uint16_t b;
+    uint32_t c;    
+};
+```
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/71ac1224-eddf-4e35-b235-cd7539305281)
+
+```c
+struct Example {
+    uint8_t a;    
+    uint32_t b;
+    uint16_t c;  
+};
+
+```
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/3b1a6410-2e44-449f-b431-a3b9a9fdd031)
+
+```c
+struct Example1 {
+    uint8_t arr1[5];
+    uint16_t arr2_1;  
+    uint16_t arr2_2; 
+    uint16_t arr2_3; 
+    uint16_t arr2_4;   
+    uint32_t arr3[2];
+};
+
+```
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/8e6d35c5-86d0-4b13-958a-11c7a9115118)
+
+
+
+### UNION
+
+Trong ngôn ngữ lập trình C, union là một cấu trúc dữ liệu giúp lập trình viên kết hợp nhiều kiểu dữ liệu khác nhau vào cùng một vùng nhớ. Mục đích chính của union là tiết kiệm bộ nhớ bằng cách chia sẻ cùng một vùng nhớ cho các thành viên của nó. Điều này có nghĩa là, trong một thời điểm, chỉ một thành viên của union có thể được sử dụng. Điều này được ứng dụng nhằm tiết kiệm bộ nhớ.
+
+```c
+union TenUnion {
+    kieuDuLieu1 thanhVien1;
+    kieuDuLieu2 thanhVien2;
+    // ...
+};
+
+```
+#### Kích thước của Union
+
+```c
+union Data {
+    uint8_t a;
+    uint16_t b;
+    uint32_t c;
+};
+
+```
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/072d5304-5c10-459f-a327-5e491f93c119)
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/7592cd93-5aae-477c-bfc6-5180f4bc2a83)
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/58d53819-70ea-4501-b77f-f352bf0f3565)
+
+#### Ứng dụng kết hợp struct và union
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+
+typedef union {
+    struct {
+        uint8_t id[2];
+        uint8_t data[4];
+        uint8_t check_sum[2];
+    } data;
+
+    uint8_t frame[8];
+
+} Data_Frame;
+
+
+int main(int argc, char const *argv[])
+{
+    Data_Frame transmitter_data;
+    
+    strcpy(transmitter_data.data.id, "10");
+    strcpy(transmitter_data.data.data, "1234");
+    strcpy(transmitter_data.data.check_sum, "70");
+
+		Data_Frame receiver_data;
+    strcpy(receiver_data.frame, transmitter_data.frame);
+	
+    
+    return 0;
+}
+
+```
+
+
+
 
 </p>
 </details>
