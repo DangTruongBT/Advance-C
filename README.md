@@ -592,7 +592,35 @@ int setjmp(jmp_buf environment): Macro này lưu trữ môi trường (environme
 int setjmp(jmp_buf environment)
 ```
 
+  - Tham số:
 
+    ```c
+    int setjmp(jmp_buf environment)
+    ```
+  - Trả về giá trị:
+
+Macro này trả về nhiều hơn 1 lần. Đầu tiên, trên lời gọi trực tiếp của nó, nó luôn luôn trả về 0. Khi longjmp được gọi với thông tin được thiết lập tới environment, macro này lại trả về lần nữa; lúc này nó trả về giá trị đã được truyền tới longjmp như là tham số thứ hai.
+
+#### Các hàm được định nghĩa trong setjmp.h
+
+Chỉ có một hàm được định nghĩa trong setjmp.h:
+
+Hàm void longjmp(jmp_buf environment, int value): Hàm này phục hồi môi trường (environment) đã được lưu trữ bởi lời gọi gần nhất tới macro setjmp() trong cùng lời gọi hàm của chương trình với tham số tương ứng là jmp_buf.
+
+**Khai báo hàm longjmp() trong C**
+
+```c
+void longjmp(jmp_buf environment, int value)
+```
+   - Tham số
+
+     environment − Đây là đối tượng của kiểu jmp_buf chứa thông tin để lưu trữ môi trường tại điểm gọi của setjmp.
+
+     value − Đây là giá trị để biểu thức setjmp ước lượng.
+     
+   - Giá trị trả về
+
+     Hàm này không trả về bất cứ giá trị nào.
 </p>
 </details>
 
