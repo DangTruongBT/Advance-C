@@ -647,6 +647,147 @@ int *A = (int *)malloc(18446744073709551615);
 <details><summary>LESSON 5: Extern - Static - Volatile - Register</summary>
 <p>
 
+## LESSON 5: Extern - Static - Volatile - Register
+
+### EXTERN
+
+Khái niệm Extern trong ngôn ngữ lập trình C được sử dụng để thông báo rằng một biến hoặc hàm đã được khai báo ở một nơi khác trong chương trình hoặc trong một file nguồn khác. Điều này giúp chương trình hiểu rằng biến hoặc hàm đã được định nghĩa và sẽ được sử dụng từ một vị trí khác, giúp quản lý sự liên kết giữa các phần khác nhau của chương trình hoặc giữa các file nguồn.
+
+### STATIC
+
+Khi 1 biến cục bộ được khai báo với từ khóa static. Biến sẽ chỉ được khởi tạo 1 lần duy nhất và tồn tại suốt thời gian chạy chương trình. Giá trị của nó không bị mất đi ngay cả khi kết thúc hàm. Tuy nhiên khác với biến toàn cục có thể gọi trong tất cả mọi nơi trong chương trình, thì biến cục bộ static chỉ có thể được gọi trong nội bộ hàm khởi tạo ra nó. Mỗi lần hàm được gọi, giá trị của biến chính bằng giá trị tại lần gần nhất hàm được gọi.
+
+```c
+#include<stdio.h>
+ 
+int in_so_thu_tu(void)
+{
+   static int x = 0;
+   x = x + 1;
+   printf("%d\r\n",x);
+} 
+ 
+int main() {
+   in_so_thu_tu ();         //giá trị của x tăng lên 1 đơn vị từ 0
+   in_so_thu_tu ();         //giá trị của x tăng lên 1 đơn vị từ 1
+   in_so_thu_tu ();         //giá trị của x tăng lên 1 đơn vị từ 2
+   in_so_thu_tu ();         //giá trị của x tăng lên 1 đơn vị từ 3
+   in_so_thu_tu ();         //giá trị của x tăng lên 1 đơn vị từ 4
+   return 0;
+}
+
+
+```
+
+```c
+
+Kết quả:
+1
+2
+3
+4
+5
+
+```
+
+Biến static trong khai báo biến toàn cục và khai báo hàm
+
+Mỗi project thường sẽ được viết trên nhiều File vì mục đích phân chia module cũng như là để dễ bảo trì. Do có nhiều File nên rất có thể ở các File sẽ có sự trùng lặp trong cách đặt tên biến. Để tránh sự cố sai sót này người ta đưa ra khái niệm biến toàn cục tĩnh và hàm tĩnh.
+
+Biến toàn cục tĩnh sẽ chỉ có thể được truy cập và sử dụng trong File khai báo nó, các File khác không có cách nào truy cập được.
+Hàm tĩnh sẽ chỉ có thể gọi trong File khai báo nó, các File khác không có cách nào gọi hàm này được.
+
+```c
+Ví dụ:
+//-----------------
+//A.c
+
+// biến a này chỉ được sử dụng trong file A.c
+static int a;    
+
+// hàm hienthi() này chỉ được sử dụng trong file A.c
+static void hien_thi() {};   
+
+int c;
+
+
+//------------------
+//B.c
+
+// biến a này chỉ được sử dụng trong file B.c
+static int a;    
+
+// hàm hienthi() này chỉ được sử dụng trong file B.c
+static void hien_thi() {};
+
+int d; 
+```
+
+### Volatile
+
+Trong lập trình nhúng (Embedded System), ta rất thường hay gặp khai báo biến với từ khóa volatile. Việc khai báo biến volatile là rất cần thiết để tránh những lỗi sai khó phát hiện do tính năng optimization của compiler.
+
+Volatile đại diện cho các biến có thể thay đổi bất thường mà không thông qua nguồn source code.
+
+```c
+#include "stm32f10x.h"
+
+volatile int i = 0;
+int a = 100;
+
+int main()
+{
+	
+	while(1)
+	{
+		i = *((int*) 0x20000000);
+		if (i > 0)
+		{
+			break;
+		}
+		
+	}
+	a = 200;
+}
+
+```
+
+Ví dụ: Trong lập trình nhúng, chúng ta hay gặp đoạn code khi ta khai báo 1 biến đếm count, mỗi khi bấm nút xảy ra ngắt ngoài, chúng ta tăng biến đếm count. Tuy nhiên, khi chúng ta bật tính năng tối ưu code của compiler, nó sẽ hiểu rằng các biến như vậy dường như không thay đổi giá trị bởi phần mềm nên compiler có xu hướng loại bỏ biến count để có thể tối ưu kích cỡ file code chạy được sinh ra.
+
+### Register
+
+Trong ngôn ngữ lập trình C, từ khóa register được sử dụng để chỉ ra ý muốn của lập trình viên rằng một biến được sử dụng thường xuyên và có thể được lưu trữ trong một thanh ghi máy tính, chứ không phải trong bộ nhớ RAM. Việc này nhằm tăng tốc độ truy cập. Tuy nhiên, lưu ý rằng việc sử dụng register chỉ là một đề xuất cho trình biên dịch và không đảm bảo rằng biến sẽ được lưu trữ trong thanh ghi. Trong thực tế, trình biên dịch có thể quyết định không tuân thủ lời đề xuất này.
+
+![image](https://github.com/DangTruongBT/advance-C/assets/103482832/866c5040-857f-46da-a2a1-7fdefbdd44b6)
+
+```c
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    // Lưu thời điểm bắt đầu
+    clock_t start_time = clock();
+    int i;
+
+    // Đoạn mã của chương trình
+    for (i = 0; i < 2000000; ++i) {
+        // Thực hiện một số công việc bất kỳ
+    }
+
+    // Lưu thời điểm kết thúc
+    clock_t end_time = clock();
+
+    // Tính thời gian chạy bằng miligiây
+    double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+
+    printf("Thoi gian chay cua chuong trinh: %f giay\n", time_taken);
+
+    return 0;
+}
+
+```
+
+
 </p>
 </details>
 
