@@ -26,4 +26,24 @@ Phát triển một chương trình bằng C để quản lý thông tin cư dâ
 
    
    ```
+
+   MemberNode
+   
+   ```c
+   Mô tả: Node trong linked list chứa thông tin Member.
+
+   Trường thông tin: Dữ liệu Member, con trỏ đến MemberNode tiếp theo.
+   ```
+
+   Ví dụ Code
+
+   ```c
+   // Định nghĩa cấu trúc MemberNode
+      typedef struct MemberNode {
+          Member data;
+          struct MemberNode* next;
+      } MemberNode;
+   ```
+
+   
    
