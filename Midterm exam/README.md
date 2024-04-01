@@ -44,6 +44,43 @@ Phát triển một chương trình bằng C để quản lý thông tin cư dâ
           struct MemberNode* next;
       } MemberNode;
    ```
+   Hàm tạo một MemberNode mới
+
+   ```c
+   MemberNode* createMemberNode(Member member) { 
+          MemberNode* newNode = (MemberNode*)malloc(sizeof(MemberNode));
+          newNode->data = member;
+          newNode->next = NULL;
+          return newNode;
+      }
+   
+   ```
+### Các chức năng chính
+
+  - Thêm thành viên (Add member)
+
+    ```c
+    Mô tả: Ghi thông tin mới của thành viên vào cuối file CSV.
+
+    Đầu vào: Member mới.
+
+    Đầu ra: File CSV cập nhật.
+    
+    ```
+    
+    Ví dụ: void addMember(const char* filename, Member member)
+
+ - Xóa Thành Viên (Delete Member):
+
+   ```c
+
+   Mô tả: Xóa thông tin của thành viên dựa trên UID từ file CSV.
+
+   Đầu vào: UID của thành viên cần xóa.
+
+   Đầu ra: File CSV cập nhật.
+   
+   ```
 
    
    
