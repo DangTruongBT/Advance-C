@@ -81,6 +81,78 @@ Phát triển một chương trình bằng C để quản lý thông tin cư dâ
    Đầu ra: File CSV cập nhật.
    
    ```
+Ví dụ: void deleteMember(const char* filename, const char* uid)
+
+- Chỉnh Sửa Thông Tin Thành Viên (Edit Member):
+
+  ```c
+  Mô tả: Cập nhật thông tin của thành viên dựa trên UID trong file CSV.
+
+  Đầu vào: Member cập nhật và UID.
+
+  Đầu ra: File CSV cập nhật.
+
+  
+  ```
+
+Ví dụ: void editMember(const char* filename, Member updatedMember)
+
+- Tìm Kiếm Thông Tin Thành Viên (Search Member):
+
+  ```c
+  Mô tả: Tìm kiếm thông tin thành viên dựa trên UID hoặc biển số xe.
+
+  Đầu vào: Giá trị tìm kiếm và tiêu chí (UID/Biển số xe).
+
+  Đầu ra: Thông tin tìm được hoặc thông báo không tìm thấy.
+  
+  ```
+
+  Ví dụ:
+
+  ```c
+    int searchByUID(const Member* member, const char* uid)
+    int searchByLicensePlate(const Member* member, const char* licensePlate)
+    Member searchMember(const char* filename, const char* searchValue, SearchFunction searchFunc)
+  
+  ```
+
+ -  Bổ Sung
+
+   ```c
+   Định Dạng File CSV: Đảm bảo file CSV tuân thủ định dạng đã quy định với các cột là UID của RFID, Số Phòng, Tên, và Biển Số Xe.
+
+   UID của RFID: Chuỗi ký tự độc nhất định danh cho mỗi cư dân.
+
+   Số Phòng: Mã số phòng của cư dân.
+
+   Tên: Tên đầy đủ của cư dân.
+
+   Biển Số Xe: Biển số xe (nếu có) của cư dân.
+ ```
+
+  Ví Dụ:
+
+```c
+    Một ví dụ về dòng dữ liệu trong file CSV:
+    uID,roomNumber,name,licensePlates
+    123456789,A-101,Nguyễn Văn A,51F-123.45
+
+```
+
+Trong đó:
+
+```c
+
+    123456789 là UID của RFID.
+    A-101 là số phòng.
+    Nguyễn Văn A là tên của cư dân.
+    51F-123.45 là biển số xe.
+
+
+```
+
+- Tính Mở Rộng: Cấu trúc chương trình cần cho phép dễ dàng mở rộng thêm chức năng hoặc cấu trúc dữ liệu mới.
 
    
    
