@@ -108,6 +108,7 @@ int searchMember(const char* filename, char* searchKey)
 
 	Member member;
 	char line[1000];
+	int found = 0;
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		sscanf(line, "%[^,],%[^,],%[^,],%s", member.uid, member.roomNumber, member.name, member.licensePlate);
@@ -116,16 +117,19 @@ int searchMember(const char* filename, char* searchKey)
 
 			printf("Resident found:\n");
 			printf("UID: %s, Room Number: %s, Name: %s, License Plate: %s\n", member.uid, member.roomNumber, member.name, member.licensePlate);
+			found = 1;
 			break;
 		}
 		else if (strcmp(member.licensePlate, searchKey) == 0)
 		{
 			printf("Resident found:\n");
 			printf("UID: %s, Room Number: %s, Name: %s, License Plate: %s\n", member.uid, member.roomNumber, member.name, member.licensePlate);
+			found = 1;
 			break;
 		}
 		break;
 	}
+	if (found == 0)
 	{
 		printf("Resident not found\n");
 	}
