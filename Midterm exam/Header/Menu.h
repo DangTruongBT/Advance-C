@@ -2,7 +2,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 /*
 * File: Menu.h
-* Author: Minh Phat
+* Author: Dang Minh Truong
 * Date: 5/4/2024
 * Description: This file contains all the functions prototypes for program display library.
 */
